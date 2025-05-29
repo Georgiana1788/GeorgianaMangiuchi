@@ -976,5 +976,95 @@
             });
         });
     </script>
+    <div class="music-controls">
+    <button id="playPauseBtn" aria-label="Play/Pause music">
+        <i class="fas fa-volume-up"></i>
+    </button>
+    <span>Gothic Melodies</span>
+    <audio id="backgroundMusic" loop preload="auto" autoplay>
+        <source src="https://raw.githubusercontent.com/Georgiana1788/GeorgianaMangiuchi/main/background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+<script>
+const backgroundMusic = document.getElementById('backgroundMusic');
+const playPauseBtn = document.getElementById('playPauseBtn');
+let isUserPaused = false;
+function tryPlayMusic() {
+    backgroundMusic.volume = 0.5;
+    const playPromise = backgroundMusic.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            playPauseBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            isUserPaused = false;
+        }).catch(error => {
+            playPauseBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            isUserPaused = true;
+        });
+    }
+}
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => { tryPlayMusic(); }, 4500);
+});
+document.addEventListener('click', function onceUserInteracts() {
+    if (backgroundMusic.paused && !isUserPaused) {
+        tryPlayMusic();
+    }
+    document.removeEventListener('click', onceUserInteracts);
+});
+playPauseBtn.addEventListener('click', () => {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        isUserPaused = false;
+    } else {
+        backgroundMusic.pause();
+        playPauseBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        isUserPaused = true;
+    }
+});
+</script>
+<style>
+.music-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    background: rgba(40, 0, 8, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #b80016;
+}
+.music-controls button {
+    background: #b80016;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.music-controls button:hover {
+    background: #8b0000;
+    transform: scale(1.1);
+}
+.music-controls span {
+    font-family: 'UnifrakturCook', cursive;
+    color: #d0d0d0;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px #000;
+}
+</style>
 </body>
 </html>
