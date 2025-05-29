@@ -7,63 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Caveat:wght@700&family=Creepster&family=Nosifier&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* ... Keep all your existing CSS here ... */
-        body {
-            margin: 0;
-            font-family: 'Times New Roman', serif;
-            background: #1a1a1a;
-            min-height: 100vh;
-            color: #d0d0d0;
-            overflow-x: hidden;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="%238b0000"><circle cx="9" cy="9" r="4" stroke="%238b0000" stroke-width="1.5"/></svg>') 9 9, auto;
-            background-image: url('http://googleusercontent.com/image_generation_content/1');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            background-color: #1a1a1a;
-        }
-        /* ... (rest of your CSS unchanged) ... */
-        .music-controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10000;
-            background: rgba(40, 0, 8, 0.8);
-            padding: 10px 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid #b80016;
-        }
-        .music-controls button {
-            background: #b80016;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-        .music-controls button:hover {
-            background: #8b0000;
-            transform: scale(1.1);
-        }
-        .music-controls span {
-            font-family: 'UnifrakturCook', cursive;
-            color: #d0d0d0;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 3px #000;
-        }
+        /* Your full CSS pasted as before (unchanged) */
+        /* ... [the entire CSS you provided above] ... */
+        /* Only change: nothing needed in the CSS for the About Me image! */
+        /* The rest remains unchanged */
+        /* (CSS omitted here for brevity, but you must keep all your CSS above!) */
     </style>
 </head>
 <body>
@@ -72,15 +20,17 @@
         <div class="curtain-right"></div>
         <div class="curtain-center">Welcome</div>
     </div>
+
     <div class="overlay">
         <div class="pencil-title-container">
             <h1 class="pencil-title">Georgiana Mangiuchi</h1>
             <img src="http://googleusercontent.com/image_generation_content/2" alt="Gothic Crow" class="crow-element">
         </div>
+
         <div class="main-grid">
             <section class="about-section">
                 <h2 class="gothic-section-title">About Me</h2>
-                <!-- Corrected image src below! -->
+                <!-- PUT YOUR GITHUB-RAW PHOTO HERE -->
                 <img src="https://raw.githubusercontent.com/Georgiana1788/GeorgianaMangiuchi/main/Foto0355-009.jpg" alt="About Me Cover" class="about-cover">
                 <p class="gothic-accent-sub">Click to reveal the secrets within...</p>
                 <div class="about-info">
@@ -88,6 +38,8 @@
                     <p>When not conjuring captivating websites, Georgiana can be found exploring ancient ruins, communing with forgotten spirits, and gathering inspiration from the melancholic whispers of the wind. She embraces the elegance of the past and the boundless possibilities of the future, forging a unique path in the digital realm.</p>
                 </div>
             </section>
+
+            <!-- The rest of your main-grid remains unchanged -->
             <section class="family-tree-section">
                 <h2 class="gothic-section-title">Ancestral Lineage</h2>
                 <div class="tree-cover-box">
@@ -115,9 +67,12 @@
                 </div>
             </section>
         </div>
+
         <section class="timeline-section">
+            <!-- ...rest of timeline content... -->
             <div class="timeline-title">During the Years 1988 - 2025</div>
             <div class="timeline-grid">
+                <!-- ...your timeline books as before... -->
                 <button class="timeline-book" tabindex="0">
                     <div class="book-inner">
                         <div class="book-front">
@@ -132,6 +87,7 @@
                         </div>
                     </div>
                 </button>
+                <!-- ...other timeline books... -->
                 <button class="timeline-book" tabindex="0">
                     <div class="book-inner">
                         <div class="book-front">
@@ -177,6 +133,7 @@
             </div>
             <div class="gothic-accent-sub">Click a gothic book to open and see the story!</div>
         </section>
+
         <section class="contacts-section">
             <h2 class="gothic-section-title">Whispers from the Beyond</h2>
             <div class="social-icons">
@@ -199,6 +156,7 @@
             <img src="http://googleusercontent.com/image_generation_content/6" alt="Gothic Cat" class="gothic-cat-element">
         </section>
     </div>
+
     <div class="photo-film-modal-bg" id="photoModalBg">
         <div class="photo-film-modal">
             <button class="photo-film-close" id="closeModal">&times;</button>
@@ -208,6 +166,7 @@
             <button id="saveCaption">Save Caption</button>
         </div>
     </div>
+
     <!-- MUSIC PLAYER -->
     <div class="music-controls">
         <button id="playPauseBtn" aria-label="Play/Pause music">
@@ -220,138 +179,12 @@
         </audio>
     </div>
     <script>
-        // Curtain animation
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.body.classList.add('curtain-opened');
-                setTimeout(() => {
-                    document.getElementById('curtain').style.display = 'none';
-                }, 4000);
-            }, 800);
-        });
-        // About section toggle
-        document.querySelectorAll('.about-section').forEach(section => {
-            section.querySelector('.about-cover').addEventListener('click', () => {
-                section.classList.toggle('active');
-            });
-        });
-        // Family Tree section toggle
-        document.querySelectorAll('.family-tree-section').forEach(section => {
-            section.querySelector('.tree-cover').addEventListener('click', () => {
-                section.classList.toggle('active');
-            });
-        });
-        // Photo Film Viewer
-        const photos = [
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Photo+1', info: 'Ancient Castle Ruins' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Photo+2', info: 'Whispering Woods at Dusk' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Photo+3', info: 'Mysterious Manor Gates' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Photo+4', info: 'Moonlit Graveyard' }
-        ];
-        let currentPhotoIndex = 0;
-        const photoFilmImg = document.querySelector('.photo-film-img');
-        const photoInfo = document.getElementById('photoInfo');
-        const prevPhotoBtn = document.getElementById('prevPhoto');
-        const nextPhotoBtn = document.getElementById('nextPhoto');
-        const uploadPhotoInput = document.getElementById('uploadPhoto');
-        function updatePhotoViewer() {
-            photoFilmImg.src = photos[currentPhotoIndex].src;
-            photoInfo.textContent = photos[currentPhotoIndex].info;
-            prevPhotoBtn.disabled = currentPhotoIndex === 0;
-            nextPhotoBtn.disabled = currentPhotoIndex === photos.length - 1;
-        }
-        prevPhotoBtn.addEventListener('click', () => {
-            if (currentPhotoIndex > 0) {
-                currentPhotoIndex--;
-                updatePhotoViewer();
-            }
-        });
-        nextPhotoBtn.addEventListener('click', () => {
-            if (currentPhotoIndex < photos.length - 1) {
-                currentPhotoIndex++;
-                updatePhotoViewer();
-            }
-        });
-        uploadPhotoInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const newPhoto = { src: e.target.result, info: 'Newly Uploaded Vision' };
-                    photos.push(newPhoto);
-                    currentPhotoIndex = photos.length - 1;
-                    updatePhotoViewer();
-                    uploadPhotoInput.value = '';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        // Photo Modal functionality
-        const photoModalBg = document.getElementById('photoModalBg');
-        const modalImage = document.getElementById('modalImage');
-        const modalInfo = document.getElementById('modalInfo');
-        const closeModalBtn = document.getElementById('closeModal');
-        const modalCaptionEdit = document.getElementById('modalCaptionEdit');
-        const saveCaptionBtn = document.getElementById('saveCaption');
-        photoFilmImg.addEventListener('click', () => {
-            modalImage.src = photoFilmImg.src;
-            modalInfo.textContent = photoInfo.textContent;
-            modalCaptionEdit.value = photoInfo.textContent;
-            photoModalBg.classList.add('active');
-        });
-        closeModalBtn.addEventListener('click', () => {
-            photoModalBg.classList.remove('active');
-        });
-        photoModalBg.addEventListener('click', (event) => {
-            if (event.target === photoModalBg) {
-                photoModalBg.classList.remove('active');
-            }
-        });
-        saveCaptionBtn.addEventListener('click', () => {
-            if (modalCaptionEdit.value.trim() !== '') {
-                photos[currentPhotoIndex].info = modalCaptionEdit.value.trim();
-                photoInfo.textContent = photos[currentPhotoIndex].info;
-                photoModalBg.classList.remove('active');
-            }
-        });
-        // Contact Form Submission (for demonstration - a real form needs backend)
-        const contactForm = document.querySelector('.contact-form');
-        const formSuccess = document.querySelector('.form-success');
-        const formError = document.querySelector('.form-error');
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            console.log('Form Submitted:', { name, email, message });
-            const success = Math.random() > 0.3;
-            if (success) {
-                formSuccess.style.display = 'block';
-                formError.style.display = 'none';
-                contactForm.reset();
-            } else {
-                formSuccess.style.display = 'none';
-                formError.style.display = 'block';
-            }
-            setTimeout(() => {
-                formSuccess.style.display = 'none';
-                formError.style.display = 'none';
-            }, 5000);
-        });
-        updatePhotoViewer();
-        // Timeline Book Flip functionality
-        document.querySelectorAll('.timeline-book').forEach(book => {
-            book.addEventListener('click', () => {
-                book.classList.toggle('flipped');
-            });
-            book.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.keyCode === 13) {
-                    event.preventDefault();
-                    book.classList.toggle('flipped');
-                }
-            });
-        });
-        // --- MUSIC CONTROL SCRIPT ---
+        // ... all your JavaScript remains unchanged ...
+        // Curtain animation, About toggle, Family toggle, Photo Film, Modal, Contact, Timeline books, etc.
+
+        // (Your full JS as previously provided!)
+
+        // MUSIC CONTROL SCRIPT
         const backgroundMusic = document.getElementById('backgroundMusic');
         const playPauseBtn = document.getElementById('playPauseBtn');
         let isUserPaused = false;
