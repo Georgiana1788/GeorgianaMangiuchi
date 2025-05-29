@@ -7,9 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Caveat:wght@700&family=Creepster&family=Nosifier&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* [All your CSS remains unchanged: everything in your sample above] */
-        /* ... */
-        /* (For brevity, your entire CSS is assumed to be here and unchanged!) */
+        /* [Paste ALL your CSS here as in your original code] */
+        /* ... (for brevity, not shown here, but use your full CSS from your message above) ... */
     </style>
 </head>
 <body>
@@ -28,9 +27,8 @@
         <div class="main-grid">
             <section class="about-section">
                 <h2 class="gothic-section-title">About Me</h2>
-                <!-- HERE IS YOUR PHOTO FROM GITHUB! -->
-                <img src="https://raw.githubusercontent.com/Georgiana1788/GeorgianaMangiuchi/main/Foto0355-009.jpg" 
-                     alt="About Me Cover" class="about-cover">
+                <!-- Use your GitHub-hosted image here -->
+                <img src="https://raw.githubusercontent.com/Georgiana1788/GeorgianaMangiuchi/main/Foto0355-009.jpg" alt="About Me Cover" class="about-cover">
                 <p class="gothic-accent-sub">Click to reveal the secrets within...</p>
                 <div class="about-info">
                     <p>Hailing from the shadowed lands of Transylvania, Georgiana Mangiuchi delves into the arcane arts of digital creation. With a spirit as old as the castle walls, she weaves intricate designs and haunting narratives into every project. Her craft is a testament to the beauty found in the obscure and the power hidden in the dark.</p>
@@ -176,198 +174,8 @@
     </div>
 
     <script>
-        // Curtain animation
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.body.classList.add('curtain-opened');
-                setTimeout(() => {
-                    document.getElementById('curtain').style.display = 'none';
-                }, 4000); // Increased time for curtain to fully disappear (slightly more than CSS transition)
-            }, 800); // Slight delay before curtain starts opening
-        });
-
-        // About section toggle
-        document.querySelectorAll('.about-section').forEach(section => {
-            section.querySelector('.about-cover').addEventListener('click', () => {
-                section.classList.toggle('active');
-            });
-        });
-
-        // Family Tree section toggle
-        document.querySelectorAll('.family-tree-section').forEach(section => {
-            section.querySelector('.tree-cover').addEventListener('click', () => {
-                section.classList.toggle('active');
-            });
-        });
-
-        // Photo Film Viewer
-        const photos = [
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Ancient+Castle', info: 'Ancient Castle Ruins. A timeless sentinel of forgotten eras.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Whispering+Woods', info: 'Whispering Woods at Dusk. Where shadows dance and secrets are kept.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Mysterious+Manor', info: 'Mysterious Manor Gates. Beyond lies a history shrouded in intrigue.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Moonlit+Graveyard', info: 'Moonlit Graveyard. A serene resting place under the watchful moon.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Hidden+Crypt', info: 'Hidden Crypt Entrance. A passage to the silent world below.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Gothic+Cathedral', info: 'Gothic Cathedral Spires. Reaching for the heavens, touching the abyss.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Stormy+Coast', info: 'Stormy Coastline. Where the wild sea meets the ancient land.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Enchanted+Forest', info: 'Enchanted Forest Path. A journey into the heart of the unknown.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Old+Library', info: 'Old Library, Forgotten Scrolls. Echoes of knowledge from centuries past.' },
-            { src: 'https://placehold.co/130x180/333/d0d0d0?text=Haunted+Bridge', info: 'Haunted Stone Bridge. A crossing point between worlds.' }
-        ];
-        let currentPhotoIndex = 0;
-
-        const photoFilmImg = document.querySelector('.photo-film-img');
-        const photoInfo = document.getElementById('photoInfo');
-        const prevPhotoBtn = document.getElementById('prevPhoto');
-        const nextPhotoBtn = document.getElementById('nextPhoto');
-        const uploadPhotoInput = document.getElementById('uploadPhoto');
-
-        function updatePhotoViewer() {
-            photoFilmImg.src = photos[currentPhotoIndex].src;
-            photoInfo.textContent = photos[currentPhotoIndex].info;
-            prevPhotoBtn.disabled = currentPhotoIndex === 0;
-            nextPhotoBtn.disabled = currentPhotoIndex === photos.length - 1;
-        }
-
-        prevPhotoBtn.addEventListener('click', () => {
-            if (currentPhotoIndex > 0) {
-                currentPhotoIndex--;
-                updatePhotoViewer();
-            }
-        });
-
-        nextPhotoBtn.addEventListener('click', () => {
-            if (currentPhotoIndex < photos.length - 1) {
-                currentPhotoIndex++;
-                updatePhotoViewer();
-            }
-        });
-
-        uploadPhotoInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const newPhoto = { src: e.target.result, info: 'Newly Uploaded Vision' };
-                    photos.push(newPhoto);
-                    currentPhotoIndex = photos.length - 1;
-                    updatePhotoViewer();
-                    uploadPhotoInput.value = '';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Photo Modal functionality
-        const photoModalBg = document.getElementById('photoModalBg');
-        const modalImage = document.getElementById('modalImage');
-        const modalInfo = document.getElementById('modalInfo');
-        const closeModalBtn = document.getElementById('closeModal');
-        const modalCaptionEdit = document.getElementById('modalCaptionEdit');
-        const saveCaptionBtn = document.getElementById('saveCaption');
-
-        photoFilmImg.addEventListener('click', () => {
-            modalImage.src = photoFilmImg.src;
-            modalInfo.textContent = photoInfo.textContent;
-            modalCaptionEdit.value = photoInfo.textContent;
-            photoModalBg.classList.add('active');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            photoModalBg.classList.remove('active');
-        });
-
-        photoModalBg.addEventListener('click', (event) => {
-            if (event.target === photoModalBg) {
-                photoModalBg.classList.remove('active');
-            }
-        });
-
-        saveCaptionBtn.addEventListener('click', () => {
-            if (modalCaptionEdit.value.trim() !== '') {
-                photos[currentPhotoIndex].info = modalCaptionEdit.value.trim();
-                photoInfo.textContent = photos[currentPhotoIndex].info;
-                photoModalBg.classList.remove('active');
-            }
-        });
-
-        // Contact Form Submission (for demonstration - a real form needs backend)
-        const contactForm = document.querySelector('.contact-form');
-        const formSuccess = document.querySelector('.form-success');
-        const formError = document.querySelector('.form-error');
-
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            console.log('Form Submitted:', { name, email, message });
-            const success = Math.random() > 0.3;
-            if (success) {
-                formSuccess.style.display = 'block';
-                formError.style.display = 'none';
-                contactForm.reset();
-            } else {
-                formSuccess.style.display = 'none';
-                formError.style.display = 'block';
-            }
-            setTimeout(() => {
-                formSuccess.style.display = 'none';
-                formError.style.display = 'none';
-            }, 5000);
-        });
-
-        updatePhotoViewer();
-
-        // Timeline Book Flip functionality
-        document.querySelectorAll('.timeline-book').forEach(book => {
-            book.addEventListener('click', () => {
-                book.classList.toggle('flipped');
-            });
-            book.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.keyCode === 13) {
-                    event.preventDefault();
-                    book.classList.toggle('flipped');
-                }
-            });
-        });
-
-        // --- MUSIC CONTROL SCRIPT ---
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        let isUserPaused = false;
-        function tryPlayMusic() {
-            backgroundMusic.volume = 0.5;
-            const playPromise = backgroundMusic.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    playPauseBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                    isUserPaused = false;
-                }).catch(error => {
-                    playPauseBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                    isUserPaused = true;
-                });
-            }
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => { tryPlayMusic(); }, 4500);
-        });
-        document.addEventListener('click', function onceUserInteracts() {
-            if (backgroundMusic.paused && !isUserPaused) {
-                tryPlayMusic();
-            }
-            document.removeEventListener('click', onceUserInteracts);
-        });
-        playPauseBtn.addEventListener('click', () => {
-            if (backgroundMusic.paused) {
-                backgroundMusic.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-                isUserPaused = false;
-            } else {
-                backgroundMusic.pause();
-                playPauseBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                isUserPaused = true;
-            }
-        });
+        // [Paste ALL your JS here as in your original code]
+        // ... (for brevity, not shown here, but use your full JS from your message above) ...
     </script>
 </body>
 </html>
